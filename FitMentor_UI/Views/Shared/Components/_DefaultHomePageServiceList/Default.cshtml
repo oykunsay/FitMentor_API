@@ -1,40 +1,25 @@
-﻿<section class="locations-1" id="locations">
+﻿@model List<FitMentor_UI.Dtos.ServiceDtos.ResultServiceDto>
+<section class="locations-1" id="locations">
     <div class="locations py-5">
         <div class="container py-lg-5 py-md-4 py-2">
             <div class="heading text-center mx-auto">
                 <h3 class="title-big">Hizmetlerimiz</h3>
             </div>
-            <div class="row">
+            <div class="row pt-md-5 pt-4">
+                @foreach(var item in Model)
+                {
                 <div class="col-lg-4 col-md-4 col-sm-12 mt-md-0 mt-4">
                     <a href="property-single.html">
                         <div class="box16">
-                            <img class="img-fluid" src="~/starter/assets/images/1.jpg" alt="Reformer Pilates">
+                                <img class="img-fluid" style="height:200px;width:700px" src="@item.ImageUrl" alt="">
                             <div class="box-content">
-                                <h3 class="title">Reformer Pilates</h3> 
+                                    <h3 class="name">@item.Name</h3>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 mt-md-0 mt-4">
-                    <a href="property-single.html">
-                        <div class="box16">
-                            <img class="img-fluid" src="~/starter/assets/images/2.jpg" alt="Reformer Pilates">
-                            <div class="box-content">
-                                <h3 class="title">Reformer Pilates</h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 mt-md-0 mt-4">
-                    <a href="property-single.html">
-                        <div class="box16">
-                            <img class="img-fluid" src="~/starter/assets/images/3.jpg" alt="Reformer Pilates">
-                            <div class="box-content">
-                                <h3 class="title">Yoga Terapi</h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    <br />
+                }
             </div>
         </div>
     </div>
