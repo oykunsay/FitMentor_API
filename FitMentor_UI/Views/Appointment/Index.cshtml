@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Randevu Alma";
+}
+
+<h2>Randevu Al</h2>
+
+<div id="datepicker"></div>
+
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            onSelect: function (dateText) {
+                alert("Seçilen Tarih: " + dateText);
+            }
+        });
+    });
+</script>
+<form id="appointmentForm" method="post">
+    <input type="hidden" id="selectedDate" name="selectedDate" />
+    <button type="submit">Randevuyu Onayla</button>
+</form>
+
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            onSelect: function (dateText) {
+                $("#selectedDate").val(dateText);
+            }
+        });
+    });
+</script>

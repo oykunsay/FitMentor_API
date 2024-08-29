@@ -5,22 +5,28 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
+
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Hizmetleri Güncelleme Sayfası</h6>
+                <h6 class="mb-4">Personel Güncelleme Sayfası</h6>
                 <form method="post">
                     <input type="hidden" asp-for="ServiceID" />
-                    <label>Kategori Adı</label>
-                    <input type="text" asp-for="Name" class="form-control" />
                     <br />
-                    <button class="btn btn-success">Hizmeti Güncelle</button>
+                    <label>Hizmet Adı</label>
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <br />            
+                    <label>Hizmet Resim URL'i'</label>
+                    <input type="text" asp-for="ImageUrl" class="form-control" />
+                    <br />
+                    <button class="btn btn-primary">Hizmeti Kaydet</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

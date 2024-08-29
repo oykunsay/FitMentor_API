@@ -2,9 +2,9 @@
 using FitMentor_API.Dtos.ServiceDtos;
 using RealEstate_Dapper_Api.Models.DapperContext;
 
-namespace FitMentor_API.Repositories
+namespace FitMentor_API.Repositories.ServiceRepositories
 {
-    public class ServiceRepository:IServiceRepository
+    public class ServiceRepository : IServiceRepository
     {
         private readonly Context _context;
         public ServiceRepository(Context context)
@@ -55,6 +55,17 @@ namespace FitMentor_API.Repositories
             using (var connectiont = _context.CreateConnection())
             {
                 await connectiont.ExecuteAsync(query, parameters);
+            }
+        }
+        public async Task<GetByIDServiceDto> GetService(int id)
+        {
+            string query = "Select * From Service Where ServiceID=@ServiceID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@ServiceID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIDServiceDto>(query, parameters);
+                return values;
             }
         }
     }

@@ -42,11 +42,11 @@ namespace FitMentor_UI.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteService(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var reponseMessage = await client.DeleteAsync($"https://localhost:44339/api/Services/{id}");
-            if (reponseMessage.IsSuccessStatusCode)
+            var responseMessage = await client.DeleteAsync($"https://localhost:44339/api/Services/{id}");
+            if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
@@ -66,12 +66,12 @@ namespace FitMentor_UI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateCategory(UpdateServiceDto updateCategoryDto)
+        public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
+            var jsonData = JsonConvert.SerializeObject(updateServiceDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:44339/api/Services/", stringContent);
+            var responseMessage = await client.PutAsync($"https://localhost:44339/api/Services/{updateServiceDto.ServiceID}", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

@@ -1,5 +1,5 @@
 ﻿using FitMentor_API.Dtos.ServiceDtos;
-using FitMentor_API.Repositories;
+using FitMentor_API.Repositories.ServiceRepositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,19 +26,25 @@ namespace FitMentor_API.Controllers
         public async Task<IActionResult> CreateService(CreateServiceDto createServiceDto)
         {
             await _serviceRepository.CreateService(createServiceDto);
-            return Ok("Kategori Başarılı Bir Şekilde Eklendi");
+            return Ok("Hizmet Başarılı Bir Şekilde Eklendi");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteService(int id)
         {
             await _serviceRepository.DeleteService(id);
-            return Ok("Kategori Başarılı Bir Şekilde Silindi");
+            return Ok("Hizmet Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]
         public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
         {
             await _serviceRepository.UpdateService(updateServiceDto);
-            return Ok("Kategori Başarıyla Güncellendi");
+            return Ok("Hizmet Başarıyla Güncellendi");
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetService(int id)
+        {
+            var value = await _serviceRepository.GetService(id);
+            return Ok(value);
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿@using FitMentor_UI.Dtos.ServiceDtos 
-@model CreateServiceDto
+﻿@model CreateServiceDto
 @{
     ViewData["Title"] = "CreateService";
     Layout = "~/Views/Admin/Index.cshtml";
 }
-
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-12">
@@ -13,14 +11,13 @@
                 <form method="post">
                     <label>Hizmet Adı</label>
                     <input type="text" asp-for="Name" class="form-control" />
-                    <label>Hizmet Resmi URL'i</label>
+                    <br />
+                    <label>Hizmet URL'i'</label>
                     <input type="text" asp-for="ImageUrl" class="form-control" />
                     <br />
-                    <button class="btn btn-primary">Hizmeti Kaydet</button>
+                    <button class="btn btn-primary">Servisi Kaydet</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-

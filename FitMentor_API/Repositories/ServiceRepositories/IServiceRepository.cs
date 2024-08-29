@@ -1,6 +1,6 @@
 ﻿using FitMentor_API.Dtos.ServiceDtos;
 
-namespace FitMentor_API.Repositories
+namespace FitMentor_API.Repositories.ServiceRepositories
 {
     public interface IServiceRepository
     {
@@ -8,5 +8,6 @@ namespace FitMentor_API.Repositories
         Task CreateService(CreateServiceDto createServiceDto);
         Task DeleteService(int id);
         Task UpdateService(UpdateServiceDto serviceDto);
+        Task<GetByIDServiceDto> GetService(int id);
     }
 }
